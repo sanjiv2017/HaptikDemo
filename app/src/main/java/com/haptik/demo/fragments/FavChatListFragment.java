@@ -66,7 +66,12 @@ public class FavChatListFragment extends Fragment {
     }
 
 
-
+    /**
+     * @param list List of {@link ChatMessage}
+     * @return Returns the {@link ArrayList} if {@link FavConversation}
+     * This method is  used to get all the list of chat messages and get the count of fav messages from the list.
+     * Here all the data of the lst is added in {@link HashMap} then map is converted to {@link ArrayList} of  {@link FavConversation}
+     */
     private ArrayList<FavConversation> getData (ArrayList<ChatMessage> list){
         if(list != null){
             HashMap<String,FavConversation> map = new HashMap<>();
@@ -98,6 +103,11 @@ public class FavChatListFragment extends Fragment {
         return null;
     }
 
+    /**
+     * @param map
+     * @return
+     * This method get the list of  {@link FavConversation from the {@link HashMap}}
+     */
     private ArrayList<FavConversation> getConversationList(HashMap<String, FavConversation> map){
             Iterator it = map.entrySet().iterator();
             ArrayList<FavConversation> conversationsList = new ArrayList<>();
