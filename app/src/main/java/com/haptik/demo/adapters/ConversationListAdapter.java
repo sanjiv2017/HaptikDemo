@@ -13,6 +13,7 @@ import com.haptik.demo.models.FavConversation;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -92,7 +93,11 @@ public class ConversationListAdapter extends RecyclerView.Adapter<ConversationLi
 
             ImageLoader.getInstance().displayImage(favConversation.getMsgList().get(0).getImageUrl(),ivUserIcon,imageOptions);
 
+            final String imageUrl = favConversation.getMsgList().get(0).getImageUrl();
 
+            if(imageUrl != null && imageUrl.trim().length() > 0){
+                Picasso.with(mContext).load(imageUrl).into(ivUserIcon);
+            }
 
         }
 

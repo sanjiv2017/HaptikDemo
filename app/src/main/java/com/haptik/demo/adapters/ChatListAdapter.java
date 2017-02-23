@@ -14,6 +14,7 @@ import com.haptik.demo.utils.Utils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -91,7 +92,12 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Studen
                 btnFav.setBackgroundResource(R.drawable.ic_un_fav);
             }
 
-            ImageLoader.getInstance().displayImage(chatMessage.getImageUrl(),ivUserIcon,imageOptions);
+            //Picasso
+            //ImageLoader.getInstance().displayImage(chatMessage.getImageUrl(),ivUserIcon,imageOptions);
+
+            if(chatMessage.getImageUrl() != null && chatMessage.getImageUrl().trim().length() > 0){
+                Picasso.with(mContext).load(chatMessage.getImageUrl()).into(ivUserIcon);
+            }
 
 
             btnFav.setOnClickListener(new View.OnClickListener() {

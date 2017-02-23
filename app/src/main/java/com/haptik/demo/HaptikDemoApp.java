@@ -32,7 +32,12 @@ public class HaptikDemoApp extends Application {
         configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
                 .imageDownloader(new BaseImageDownloader(getApplicationContext())) // default
                 .memoryCacheExtraOptions(200,200)
-                //.memoryCache(new LruMemoryCache(10 * 1024 * 1024))
+                .threadPoolSize(5) // default
+                .memoryCache(new LruMemoryCache(50 * 1024 * 1024))
+                .memoryCacheSize(50 * 1024 * 1024)
+                //.diskCache(new UnlimitedDiskCache(cacheDir)) // default
+                //.diskCacheSize(50 * 1024 * 1024)
+                //.diskCacheFileCount(100)
                 .build();
         ImageLoader.getInstance().init(configuration);
     }
