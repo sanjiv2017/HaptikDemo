@@ -11,9 +11,6 @@ import android.view.ViewGroup;
 import com.haptik.demo.R;
 import com.haptik.demo.models.ChatMessage;
 import com.haptik.demo.utils.Utils;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -30,16 +27,10 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Studen
 
     private ArrayList<ChatMessage> alChatList;
     private Context mContext;
-    private DisplayImageOptions imageOptions;
 
     public ChatListAdapter(Context mContext, ArrayList<ChatMessage> list) {
         this.mContext = mContext;
         this.alChatList = list;
-        imageOptions = new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.mipmap.ic_launcher)
-                .showImageForEmptyUri(R.mipmap.ic_launcher)
-                .displayer(new SimpleBitmapDisplayer())
-                .build();
 
     }
 
@@ -92,8 +83,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Studen
                 btnFav.setBackgroundResource(R.drawable.ic_un_fav);
             }
 
-            //Picasso
-            //ImageLoader.getInstance().displayImage(chatMessage.getImageUrl(),ivUserIcon,imageOptions);
+
 
             if(chatMessage.getImageUrl() != null && chatMessage.getImageUrl().trim().length() > 0){
                 Picasso.with(mContext).load(chatMessage.getImageUrl()).into(ivUserIcon);
