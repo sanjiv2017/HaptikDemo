@@ -11,6 +11,9 @@ import retrofit2.Response;
 
 /**
  * Created by Sanjiv Patel on 22/02/17.
+ * This class handles to contain all the methods for the chat service api.
+ * This class call the web service over http request get the response and passed to the respinse
+ * subscriber.
  *
  */
 public class ChatServiceFacade extends BaseFacade implements IChatService,IResponseSubscribe {
