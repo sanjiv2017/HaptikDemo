@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:background="@android:color/white"
+    android:padding="@dimen/main_padding">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_chat_icon"
+        android:layout_width="@dimen/chat_icon_width"
+        android:layout_height="@dimen/chat_icon_height"
+        android:src="@mipmap/ic_launcher"
+        app:civ_border_color="@color/colorAccent"
+        app:civ_border_width="1dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_chat_icon"
+        android:layout_marginLeft="4dp"
+        android:layout_width="match_parent"
+        android:layout_toLeftOf="@+id/btn_fav"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_chat_icon"
+        android:background="@drawable/bg_chat"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_chat_icon"
+            android:layout_marginLeft="4dp"
+            android:text="User"
+            android:textColor="@android:color/black" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_chat_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:minWidth="100dp"
+            android:padding="8dp"
+            android:text="Hello"
+            android:textColor="#000" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_chat_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="right"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="10:20 PM"
+            android:textColor="#666"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_fav"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="4dp"
+        android:layout_alignBottom="@id/ll_chat_icon"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/ic_un_fav"
+        android:visibility="visible" />
+
+
+</RelativeLayout>
